@@ -1,0 +1,114 @@
+/*
+	Theme Name: Hivisasa Theme
+	----------------------------------------------------------
+	Theme URI: http://
+	Author: Kevin Wachira
+	Author URI: http://kevinnmwangi@gmail.com
+	Description: Hivisasa Theme
+	Version: 0.1
+
+	----------------------------------------------------------*/
+
+/* Theme's main structure
+	----------------------------------------------------------
+	EX-0. STYLES OVERRIDES
+	EX-1. HEADER STYLES
+	EX-2. GET STARTED SECTION
+	EX-3. ABOUT-US SECTION
+	EX-4. PRICING SECTION
+	EX-5. BLOG STYLES
+	EX-6. CONTACTS SECTION
+	EX-7. MESSAGE SECTION
+	EX-8. MAP SECTION
+	EX-9. PRE-FOOTER SECTION
+	EX-10. FOOTER SECTION
+	----------------------------------------------------------*/
+
+/*	----------------------------------------------------------
+ 	EX-0. STYLES OVERRIDES
+	----------------------------------------------------------*/
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    font-weight: 300;
+    color: #202121;
+    background-color: #F4F7F6;
+}
+
+.active {
+    color: green;
+}
+
+.card {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.card {
+    margin-top: 10px;
+    box-sizing: border-box;
+    border-radius: 2px;
+    background-clip: padding-box;
+}
+
+.card span.card-title {
+    color: #000;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 15px 0;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.card span.card-title a {
+    color: #000;
+    text-decoration: none;
+}
+
+.card span.card-title a:hover {
+    color: #000;
+    opacity: 0.5;
+    text-decoration: none;
+}
+
+.card .card-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.card .card-image img {
+    border-radius: 2px 2px 0 0;
+    background-clip: padding-box;
+    position: relative;
+    z-index: -1;
+}
+
+.card .card-content {
+    padding: 16px;
+    border-radius: 0 0 2px 2px;
+    background-clip: padding-box;
+    box-sizing: border-box;
+}
+
+.card .card-content p {
+    margin: 0;
+    color: inherit;
+}
+
+.card .card-action {
+    border-top: 1px solid rgba(160, 160, 160, 0.2);
+    padding: 16px;
+}
+
+.card .card-action a {
+    color: #ffab40;
+    margin-right: 16px;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+}
+
+.card .card-action a:hover {
+    color: #ffd8a6;
+    text-decoration: none;
+}
