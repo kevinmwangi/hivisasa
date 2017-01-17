@@ -7,10 +7,10 @@ export default React.createClass({
   },
 
   handleSubmit(event) {
-    event.preventDefault()
-    const userName = event.target.elements[0].value
-    const repo = event.target.elements[1].value
-    const path = `/repos/${userName}/${repo}`
+    event.preventDefault();
+    const userName = event.target.elements[0].value;
+    const repo = event.target.elements[1].value;
+    const path = `/repos/${userName}/${repo}`;
     this.context.router.push(path)
   },
 

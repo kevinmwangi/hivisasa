@@ -16,6 +16,7 @@ export default React.createClass({
                             <div className="card-content">
                                 <ul className="card-title">
                                     <NavLink to="/articleNews/123">Material Cards</NavLink>
+                                    <AllNews/>
                                 </ul>
                             </div>
 
@@ -33,3 +34,41 @@ export default React.createClass({
         )
     }
 })
+
+var AllNews  = React.createClass({
+
+    getInitialState: function() {
+        return {
+            articles: []
+        }
+    },
+    getAllNews: function() {
+        $.ajax( { //allows web pages to be updated asynchronously by exchanging small amounts of data with the server behind the scenes
+            url: 'api.hivisasa.com/v1',
+            method: 'GET',
+            dataType: 'json',
+            cache: false,
+            success: function( data ) {
+                //in case of success, set data to the device list variable
+                this.setState( {
+                    articles: data
+                });
+            }.bind( this ),
+            error: function( xhr, status, err ) {
+                //log errors found
+                console.error(status, err.toString() );
+            }.bind( this )
+        });
+    },
+
+    componentWillMount: function() {
+        this.getAllNews();
+        console.log("data", this.state.articles);
+    },
+
+    render(){
+        return(
+            <div>allNews</div>
+        )
+    }
+});
