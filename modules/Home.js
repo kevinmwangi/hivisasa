@@ -1,58 +1,64 @@
 import React from "react";
 import NavLink from "./NavLink";
 
-export default React.createClass({
-    render() {
-        return (
-            <div className="container">
-                <div className="row">
-                    <div className="col-xs-6 col-md-4">
-                        <div className="card">
-                            <div className="card-image">
-                                <img className="img-responsive"
-                                     src="http://material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0Bx4BSt6jniD7TDlCYzRROE84YWM/materialdesign_introduction.png"/>
-                            </div>
 
-                            <div className="card-content">
-                                <ul className="card-title">
-                                    <NavLink to="/articleNews/123">Material Cards</NavLink>
-                                    <AllNews/>
-                                </ul>
-                            </div>
+var NewsItem = React.createClass({
 
-                            <div className="card-action">
-                                <a href="#" target="new_blank">Link</a>
-                                <a href="#" target="new_blank">Link</a>
-                                <a href="#" target="new_blank">Link</a>
-                                <a href="#" target="new_blank">Link</a>
-                                <a href="#" target="new_blank">Link</a>
-                            </div>
-                        </div>
+    render(){
+        console.log("articles", this.props.articles[0]);
+        return(
+            <div className="col-xs-6 col-md-4">
+                <div className="card">
+                    <div className="card-image">
+                        <img className="img-responsive"
+                             src="http://material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0Bx4BSt6jniD7TDlCYzRROE84YWM/materialdesign_introduction.png"/>
+                    </div>
+
+                    <div className="card-content">
+                        <ul className="card-title">
+                            <NavLink to="/articleNews/123">Material Cards</NavLink>
+
+                        </ul>
+                    </div>
+
+                    <div className="card-action">
+                        <a href="#" target="new_blank">Link</a>
+                        <a href="#" target="new_blank">Link</a>
+                        <a href="#" target="new_blank">Link</a>
+                        <a href="#" target="new_blank">Link</a>
+                        <a href="#" target="new_blank">Link</a>
                     </div>
                 </div>
             </div>
         )
     }
-})
+});
 
-var AllNews  = React.createClass({
-
+export default React.createClass({
     getInitialState: function() {
         return {
             articles: []
         }
+
     },
+
+    upDateState:function (data) {
+        var _articles = data['tubonge'];
+        this.setState({
+            articles: _articles
+        });
+    },
+
     getAllNews: function() {
-        $.ajax( { //allows web pages to be updated asynchronously by exchanging small amounts of data with the server behind the scenes
-            url: 'api.hivisasa.com/v1',
+        $.ajax( {
+            url: 'http://api.hivisasa.com/v1/articles/county/:default/top',
             method: 'GET',
+            contentType: "application/json; charset=utf-8",
             dataType: 'json',
             cache: false,
             success: function( data ) {
-                //in case of success, set data to the device list variable
-                this.setState( {
-                    articles: data
-                });
+                this.upDateState(data);
+
             }.bind( this ),
             error: function( xhr, status, err ) {
                 //log errors found
@@ -61,14 +67,16 @@ var AllNews  = React.createClass({
         });
     },
 
-    componentWillMount: function() {
+    componentDidMount: function() {
         this.getAllNews();
-        console.log("data", this.state.articles);
     },
-
-    render(){
-        return(
-            <div>allNews</div>
+    render() {
+        return (
+            <div className="container">
+                <div className="row">
+                    <NewsItem allNews={this.state.articles}/>
+                </div>
+            </div>
         )
     }
-});
+})
