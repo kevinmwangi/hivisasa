@@ -154,3 +154,4 @@ vc_hdrs.h
 *.iml
 out
 gen
+/_linux/
