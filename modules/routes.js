@@ -15,7 +15,7 @@ module.exports = (
         </Route>
         <Route path="/about" component={About}/>
         <Route path="/articleNews" component={ArticleNews}>
-            <Route path="/articleNews/:nid" component={ArticleNews}/>
+            <Route path="/articleNews/:county/:location/:nid" component={ArticleNews}/>
         </Route>
     </Route>
 );
