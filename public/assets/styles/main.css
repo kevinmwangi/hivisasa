@@ -12,8 +12,8 @@
 /* Theme's main structure
 	----------------------------------------------------------
 	EX-0. STYLES OVERRIDES
-	EX-1. HEADER STYLES
-	EX-2. GET STARTED SECTION
+	EX-1. ALL ARTICLES PAGE STYLES
+	EX-2. SINGLE ARTICLES PAGE STYLES
 	EX-3. ABOUT-US SECTION
 	EX-4. PRICING SECTION
 	EX-5. BLOG STYLES
@@ -36,6 +36,10 @@ body {
     color: #202121;
     background-color: #F4F7F6;
 }
+
+/*	----------------------------------------------------------
+ 	EX-1. ALL ARTICLES PAGE STYLES
+	----------------------------------------------------------*/
 
 .card {
     z-index: -1;
@@ -117,4 +121,13 @@ body {
 .card .card-action a:hover {
     color: #ffd8a6;
     text-decoration: none;
+}
+
+/*	----------------------------------------------------------
+ 	EX-2. SINGLE ARTICLES PAGE STYLES
+	----------------------------------------------------------*/
+
+.limit-container {
+    margin: auto;
+    max-width: 700px;
 }
