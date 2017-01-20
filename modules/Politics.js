@@ -28,14 +28,17 @@ var NewsItem = React.createClass({
 export default React.createClass({
 
     getInitialState: function () {
+        const {county, location, category, categoryname} = this.props.params;
+        const path = `http://api.hivisasa.com/v1/articles/${county}/${location}/${category}/${categoryname}`;
         return {
-            articles: []
+            articles: [],
+            articleURL: path
         }
 
     },
 
     upDateState: function (data) {
-        var _articles = data['tubonge'];
+        var _articles = data['articles'];
         this.setState({
             articles: _articles
         });
@@ -43,7 +46,7 @@ export default React.createClass({
 
     getAllNews: function () {
         $.ajax({
-            url: 'http://api.hivisasa.com/v1/articles/county/:default/top',
+            url: this.state.articleURL,
             method: 'GET',
             contentType: "application/json; charset=utf-8",
             dataType: 'json',
@@ -62,8 +65,8 @@ export default React.createClass({
     componentDidMount: function () {
         this.getAllNews();
     },
-    render() {
 
+    render() {
         return (
             <div className="container">
                 <div className="row">
@@ -71,5 +74,6 @@ export default React.createClass({
                 </div>
             </div>
         )
+
     }
 })

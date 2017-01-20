@@ -23,8 +23,9 @@ export default React.createClass({
 
                         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul className="nav navbar-nav navbar-left" role="nav">
-                                <NavLink to="/" onlyActiveOnIndex>Home</NavLink>
-                                <NavLink to="/about">About</NavLink>
+                                <NavLink to="/" onlyActiveOnIndex>All News</NavLink>
+                                <NavLink to="/county/default/category/politics">Politics</NavLink>
+                                <NavLink to="/county/default/category/business">Business</NavLink>
                                 <NavLink to="/repos">Repos</NavLink>
                             </ul>
 
