@@ -26,7 +26,6 @@ export default React.createClass({
                                 <NavLink to="/" onlyActiveOnIndex>All News</NavLink>
                                 <NavLink to="/county/default/category/politics">Politics</NavLink>
                                 <NavLink to="/county/default/category/business">Business</NavLink>
-                                <NavLink to="/repos">Repos</NavLink>
                             </ul>
 
                         </div>

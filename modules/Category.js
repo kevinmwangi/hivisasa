@@ -29,10 +29,13 @@ export default React.createClass({
 
     getInitialState: function () {
         const {county, location, category, categoryname} = this.props.params;
-        const path = `http://api.hivisasa.com/v1/articles/${county}/${location}/${category}/${categoryname}`;
+        // const path = `http://api.hivisasa.com/v1/articles/${county}/${location}/${category}/${categoryname}`;
         return {
             articles: [],
-            articleURL: path
+            county: this.props.params.county,
+            location: this.props.params.location,
+            category: this.props.params.category,
+            categoryname: this.props.params.categoryname
         }
 
     },
@@ -45,8 +48,10 @@ export default React.createClass({
     },
 
     getAllNews: function () {
+        var URL = 'http://api.hivisasa.com/v1/articles/'
+            .concat(this.state.county, '/', this.state.location, '/', this.state.category, '/', this.state.categoryname);
         $.ajax({
-            url: this.state.articleURL,
+            url: URL,
             method: 'GET',
             contentType: "application/json; charset=utf-8",
             dataType: 'json',
@@ -63,13 +68,37 @@ export default React.createClass({
     },
 
     componentDidMount: function () {
+        // this.upDateaAticleURL();
         this.getAllNews();
     },
 
+    componentWillReceiveProps: function (nextProps, nextState) {
+        // console.log(nextProps, this.state);
+        // console.log(this.props, this.state);
+
+        if (nextProps.params.categoryname !== this.state.categoryname) {
+            this.setState({
+                categoryname: nextProps.params.categoryname
+            });
+            this.getAllNews();
+        }
+
+    },
+
     render() {
+        const {county, location, category, categoryname} = this.props.params;
         return (
             <div className="container">
                 <div className="row">
+                    <div className="panel panel-default">
+                        <div className="panel-body">
+                            <ol className="breadcrumb">
+                                <li><a href="#">{county}</a></li>
+                                <li><a href="#">{category}</a></li>
+                                <li className="active">{categoryname}</li>
+                            </ol>
+                        </div>
+                    </div>
                     <NewsItem articles={this.state.articles}/>
                 </div>
             </div>

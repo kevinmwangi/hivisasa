@@ -1,12 +1,13 @@
-# What's Next?
+# Hivisasa front-end test
 
-Thanks for sticking with this tutorial all the way to the end!
+How to Run
 
-If you want to learn more:
+1.Clone the repo
+- cd to hivisasa
+- run npm install
+- Then run npm start
 
-1. Browse and run the [examples](https://github.com/reactjs/react-router/tree/latest/examples)
-- Read the [docs](https://github.com/reactjs/react-router/tree/latest/docs)
-- Read the source.
+got to [http://localhost:8080/](http://localhost:8080/)
 
-Happy routing!
+
 
