@@ -2,9 +2,7 @@
   <component name="FindSettings">
     <option name="customScope" value="File '/home/kevinn/Dev/react-select/examples/dist/standalone.js'" />
     <option name="defaultScopeName" value="File '/home/kevinn/Dev/react-select/examples/dist/standalone.js'" />
-    <option name="localCaseSensitive" value="true" />
     <option name="localWholeWordsOnly" value="true" />
-    <option name="LOCAL_CASE_SENSITIVE_SEARCH" value="true" />
     <option name="LOCAL_WHOLE_WORDS_ONLY" value="true" />
     <option name="SEARCH_SCOPE" value="File '/home/kevinn/Dev/react-select/examples/dist/standalone.js'" />
   </component>
